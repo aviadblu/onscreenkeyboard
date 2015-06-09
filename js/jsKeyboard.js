@@ -61,6 +61,7 @@ var jsKeyboard = {
         var kClass = "";
         var onclick = "";
         var text = "";
+        var button_id_c = 0;
 
         var s = "";
         s += "<div id=\"keyboard\">";
@@ -114,13 +115,18 @@ var jsKeyboard = {
         s += "</table>";
 
         function generate(key) {
+            button_id_c++;
+            var id = "btn_" + button_id_c;
+            var show_click_fn = "jsKeyboard.showClick(" + button_id_c + ")";
             bClass = key.buttonClass == undefined ? jsKeyboard.settings.buttonClass : key.buttonClass;
             kClass = key.keyClass == undefined ? jsKeyboard.settings.keyClass : key.keyClass;
-            onclick = key.onclick == undefined ? jsKeyboard.settings.onclick.replace("()", "(" + key.value + ")") : key.onclick;
+            onclick = key.onclick == undefined ? jsKeyboard.settings.onclick.replace("()", "(" + key.value + ")") + show_click_fn : key.onclick + show_click_fn;
+
+
 
             text = (key.isChar != undefined || key.isChar == false) ? key.value : String.fromCharCode(key.value);
 
-            s += "<td class=\"" + bClass + "\" onclick=\"" + onclick + "\"><div class=\"" + kClass + "\">" + text + "</div></td>";
+            s += "<td id=\"" + id + "\" class=\"" + bClass + "\" onclick=\"" + onclick + "\"><div class=\"" + kClass + "\">" + text + "</div></td>";
 
             bClass = ""; kClass = ""; onclick = ""; text = "";
         }
@@ -175,6 +181,8 @@ var jsKeyboard = {
         jsKeyboard.currentElement.setCursorPosition(jsKeyboard.currentElementCursorPosition);
     },
     write: function (m) {
+
+
         var a = jsKeyboard.currentElement.val(),
             b = String.fromCharCode(m),
             pos = jsKeyboard.currentElementCursorPosition,
@@ -182,6 +190,15 @@ var jsKeyboard = {
         jsKeyboard.currentElement.val(output);
         jsKeyboard.currentElementCursorPosition++; //+1 cursor
         jsKeyboard.updateCursor();
+    },
+    showClick: function(id) {
+        $("#btn_" + id)
+            .addClass("active")
+            .delay(200)
+            .queue(function(next) {
+                $(this).removeClass("active");
+                next();
+            });
     },
     del: function () {
 
