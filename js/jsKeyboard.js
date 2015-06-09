@@ -193,6 +193,8 @@ var jsKeyboard = {
         if (jsKeyboard.currentElementCursorPosition < 0)
             jsKeyboard.currentElementCursorPosition = 0;
         jsKeyboard.updateCursor();
+
+        jsKeyboard.currentElement.focus();
     },
     enter: function () {
         var t = jsKeyboard.currentElement.val();
