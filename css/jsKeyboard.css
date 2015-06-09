@@ -114,7 +114,8 @@ overflow:hidden;
 .button.button_symbolsleft{width:172px; font-size:1.3em; margin-left:26px;}
 .button.button_symbolsright{width:100px; font-size:1.3em;}
 
-.button.button_lang {width:150px;}
+.button.button_lang {width:120px;}
+.button.button_backspace {width:60px;}
 .button.button_zh {margin-left:45px;}
 .button.button_sh {margin-left:12px;}
 .button.button_shh {margin-left:150px;}
@@ -142,8 +143,14 @@ box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 8px rgba(82, 168, 236, 0.6)
 .button.button_lang {
     background: #337ab7; /* old browsers */
     color: #ffffff;
-
 }
+
+.button.button_backspace {
+    background: #FF3732; /* old browsers */
+    color: #ffffff;
+}
+
+
 
 .button.button_lang .key {
     padding-top:12px;

@@ -184,9 +184,10 @@ var jsKeyboard = {
         jsKeyboard.updateCursor();
     },
     del: function () {
+
         var a = jsKeyboard.currentElement.val(),
-            pos = jsKeyboard.currentElementCursorPosition,
-            output = [a.slice(0, pos - 1), a.slice(pos)].join('');
+            output = a.substr(0,a.length - 1);
+
         jsKeyboard.currentElement.val(output);
         jsKeyboard.currentElementCursorPosition--; //-1 cursor
         if (jsKeyboard.currentElementCursorPosition < 0)
@@ -227,7 +228,8 @@ var jsKeyboard = {
                 [
                     {value: "English", isChar: "false", buttonClass: "button button_lang", onclick: "jsKeyboard.switchLang();" },
                     {value: 49 }, { value: 50 }, { value: 51 }, { value: 52 }, { value: 53 }, { value: 54 },
-                    { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 }],
+                    { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 },
+                    {value: "&#8592;", isChar: "false", buttonClass: "button button_backspace", onclick: "jsKeyboard.del();" }],
                 // 1st row
                 [{value: 81 }, { value: 87 }, { value: 69 }, { value: 82 }, { value: 84 }, { value: 89 },
                     { value: 85 }, { value: 73 }, { value: 79 }, { value: 80 }, { value: 40 }, { value: 41 }/*,
@@ -251,7 +253,8 @@ var jsKeyboard = {
             [
                 {value: "English", isChar: "false", buttonClass: "button button_lang", onclick: "jsKeyboard.switchLang();" },
                 {value: 49 }, { value: 50 }, { value: 51 }, { value: 52 }, { value: 53 }, { value: 54 },
-                { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 }],
+                { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 },
+                {value: "&#8592;", isChar: "false", buttonClass: "button button_backspace", onclick: "jsKeyboard.del();" }],
             // 1st row
             [{value: 113 }, { value: 119 }, { value: 101 }, { value: 114 }, { value: 116 },
                 { value: 121 }, { value: 117 }, { value: 105 }, { value: 111 }, { value: 112 }, { value: 40 }, { value: 41 }/*,
@@ -281,7 +284,10 @@ var jsKeyboard = {
             [
                 {value: "English", isChar: "false", buttonClass: "button button_lang", onclick: "jsKeyboard.switchLang();" },
                 {value: 49 }, { value: 50 }, { value: 51 }, { value: 52 }, { value: 53 }, { value: 54 },
-                { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 }],
+                { value: 55 }, { value: 56 }, { value: 57 }, { value: 48 },
+                {value: "&#8592;", isChar: "false", buttonClass: "button button_backspace", onclick: "jsKeyboard.del();" }
+
+            ],
             // 1st row
             [{value: 47 }, { value: 39 }, { value: 1511 }, { value: 1512 }, { value: 1488 },
                 { value: 1496 }, { value: 1493 }, { value: 1503 }, { value: 1501 }, { value: 1508 }, { value: 40 }, { value: 41 }/*,
