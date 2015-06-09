@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Keyboard demo</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            body {
+                background-color: #99FF99;
+            }
+
+            .container {
+                position: relative;
+                margin:0px auto;
+                width:800px;
+                font-size:18px;
+            }
+
+            .container input,
+            .container textarea {
+                display: block;
+                margin:20px auto;
+                width:100%;
+                padding: 10px;
+                font-size:18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main" class="container">
+            <form>
+                <input class="input" name="username" type="text" placeholder="Username...">
+                <textarea rows="3" cols="20" placeholder="Description..." name="description" /></textarea>
+            </form>
+        </div>
+
+        <!-- keyboard plugin start-->
+            <link rel="stylesheet" href="css/jsKeyboard.css" />
+            <script src="js/vendor/jquery-1.9.1.min.js"></script>
+            <script type="text/javascript" src="js/jsKeyboard.js"></script>
+            <script>
+                $(function () {
+                    jsKeyboard.init();
+                    jsKeyboard.setSize("small");
+                    //jsKeyboard.destroy();
+                });
+            </script>
+        <!-- keyboard plugin end -->
+
+    </body>
+</html>
