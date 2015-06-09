@@ -27,7 +27,7 @@ var jsKeyboard = {
         $(':input').not('[type="reset"]').not('[type="submit"]').on('focus, click', function (e) {
             jsKeyboard.currentElement = $(this);
             jsKeyboard.currentElementCursorPosition = $(this).getCursorPosition();
-            console.log('keyboard is now focused on ' + jsKeyboard.currentElement.attr('name') + ' at pos(' + jsKeyboard.currentElementCursorPosition + ')');
+            //console.log('keyboard is now focused on ' + jsKeyboard.currentElement.attr('name') + ' at pos(' + jsKeyboard.currentElementCursorPosition + ')');
         });
     },
 
@@ -358,20 +358,26 @@ var jsKeyboard = {
                 { value: "ABC", isChar: "false", buttonClass: "button button_symbolsright", onclick: "jsKeyboard.changeToCapitalLetter();", keyClass: "key key_capitalletterleft" }],
         ]
     }
-}
+};
 
 
 // GET CURSOR POSITION
 jQuery.fn.getCursorPosition = function(){
     if(this.lengh == 0) return -1;
     return $(this).getSelectionStart();
-}
+};
 
 jQuery.fn.getSelectionStart = function(){
+    var type = this[0].type;
+
     if(this.lengh == 0) return -1;
     input = this[0];
 
     var pos = input.value.length;
+
+    if(type === "email"){
+        return pos;
+    }
 
     if (input.createTextRange) {
         var r = document.selection.createRange().duplicate();
@@ -383,12 +389,12 @@ jQuery.fn.getSelectionStart = function(){
         pos = input.selectionStart;
 
     return pos;
-}
+};
 
 //SET CURSOR POSITION
 jQuery.fn.setCursorPosition = function(pos) {
     this.each(function(index, elem) {
-        if (elem.setSelectionRange) {
+        if (elem.setSelectionRange && elem.type !== "email") {
             elem.setSelectionRange(pos, pos);
         } else if (elem.createTextRange) {
             var range = elem.createTextRange();
