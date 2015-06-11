@@ -11,7 +11,7 @@ var jsKeyboard = {
     "keyboard": [], // different keyboards can be set to this variable in order to switch between keyboards easily.
     init: function (elem, keyboard) {
 
-        $("body").append('<div id="LPVirtualKeyboard"></div>');
+        $("body").append('<div class="he" id="LPVirtualKeyboard"></div>');
 
         jsKeyboard.keyboard["default"] = jsKeyboard.defaultKeyboard;
         jsKeyboard.keyboardLayout = "LPVirtualKeyboard";
@@ -157,12 +157,14 @@ var jsKeyboard = {
             jsKeyboard.changeToHebrew();
             $(".button_lang .key").text("English");
             $(".button_lang_short .key").text("EN");
+            $("#LPVirtualKeyboard").addClass("he");
         }
         else {
             jsKeyboard.settings.lang = "en";
             jsKeyboard.changeToSmallLetter();
             $(".button_lang .key").text("עברית");
             $(".button_lang_short .key").text("HE");
+            $("#LPVirtualKeyboard").removeClass("he");
         }
 
     },
@@ -314,7 +316,7 @@ var jsKeyboard = {
             ],
             // 1st row
             [{value: 47 }, { value: 39 }, { value: 1511 }, { value: 1512 }, { value: 1488 },
-                { value: 1496 }, { value: 1493 }, { value: 1503 }, { value: 1501 }, { value: 1508 }, { value: 40 }, { value: 41 }, { value: 45, buttonClass: "button button_minus" }/*,
+                { value: 1496 }, { value: 1493 }, { value: 1503 }, { value: 1501 }, { value: 1508 },  { value: 41 }, { value: 40 }, { value: 45, buttonClass: "button button_minus" }/*,
              { value: "Delete", isChar: "false", onclick: "jsKeyboard.del()", buttonClass: "button button_del", keyClass: "key key_del" }*/],
             // 2nd row
             [{value: 1513, buttonClass: "button button_sh" }, { value: 1491 }, { value: 1490 }, { value: 1499 },
