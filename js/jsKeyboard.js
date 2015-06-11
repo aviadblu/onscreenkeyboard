@@ -207,6 +207,9 @@ var jsKeyboard = {
     },
     del: function () {
 
+        if(!jsKeyboard.currentElement)
+            return;
+
         var a = jsKeyboard.currentElement.val(),
             output = a.substr(0,a.length - 1);
 
@@ -219,10 +222,15 @@ var jsKeyboard = {
         jsKeyboard.currentElement.focus();
     },
     enter: function () {
+        if(!jsKeyboard.currentElement)
+            return;
+
         var t = jsKeyboard.currentElement.val();
         jsKeyboard.currentElement.val(t + "\n");
     },
     space: function () {
+        if(!jsKeyboard.currentElement)
+            return;
         var a = jsKeyboard.currentElement.val(),
             b = " ",
             pos = jsKeyboard.currentElementCursorPosition,
@@ -232,6 +240,8 @@ var jsKeyboard = {
         jsKeyboard.updateCursor();
     },
     writeSpecial: function (m) {
+        if(!jsKeyboard.currentElement)
+            return;
         var a = jsKeyboard.currentElement.val(),
             b = m,
             pos = jsKeyboard.currentElementCursorPosition,

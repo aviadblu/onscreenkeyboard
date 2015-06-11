@@ -1,0 +1,116 @@
+<div class="frm-flds" dir="rtl" style="padding: 80px 30px 0px; ">
+    <div style="margin:0 auto;width:1000px;margin-top:20px;">
+        <h2>
+            אנא אשר את פרטיך:
+        </h2>
+        <table style="width:1000px;"  border="0">
+            <tbody>
+            <tr>
+                <td style="width:25%;">
+                    שם פרטי:
+                </td>
+                <td>%%fname%%</td>
+            </tr>
+            <tr>
+                <td>
+                    שם משפחה:
+                </td>
+                <td>%%lname%%</td>
+            </tr>
+            <tr>
+                <td>
+                    רחוב ומספר:
+                </td>
+                <td>%%address%%</td>
+            </tr>
+            <tr>
+                <td>
+                    עיר:
+                </td>
+                <td>%%city%%</td>
+            </tr>
+            <tr>
+                <td>
+                    טלפון:
+                </td>
+                <td>
+                    <div style="direction:ltr;text-align:right;margin:0;">
+                        %%phone%%
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    דואר אלקטרוני:
+                </td>
+                <td>
+                    <div style="direction:ltr;text-align:right;margin:0;">
+                        %%email%%
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="btn-white"><a
+                        href="/?formId=a6a1bd78-3ad7-4f1a-9518-d87841c8cc9b&orderId=%%orderId%%">
+                    ערוך פרטים
+                </a></td>
+                <td class="btn" align="left"><input type="button" value="Submit" fieldname="@@@@"/></td>
+            </tr>
+            <tr style="display:none;">
+                <td colspan="4">&nbsp;<img src="../Images/total.jpg" fieldname="====" alt=""/></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    body {
+        background: #dbdbdb url(BlueBG.jpg) center top no-repeat;
+        font-family: Arial;
+    }
+
+    .btn input,
+    .btn-white a {
+        background: #4a4d54;
+        border: none;
+        color: white;
+        padding: 13px 22px;
+        margin-left: 49px;
+        font-size: 1.3em;
+    }
+
+    .btn-white a {
+        background: #fff;
+        border: solid 1px black;
+        color: black;
+        padding: 5px 22px;
+        text-decoration: none;
+    }
+
+    h2 {
+        font-size:34px;
+        margin:0px;
+        margin-bottom:30px;
+    }
+
+    td {
+        font-size:28px;
+        height:60px;
+        vertical-align: top;
+    }
+
+    input[type="submit"] {
+        margin-left:20px;
+        padding: 6px 20px;
+    }
+
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('.frm-flds input').on('focus', function () {
+            $(this).attr('autocomplete', 'off');
+        });
+    });
+</script>

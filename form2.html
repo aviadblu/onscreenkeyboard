@@ -1,0 +1,205 @@
+<link href="jsKeyboard.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jsKeyboard.js"></script>
+<div class="frm-flds" dir="rtl" style="padding: 50px 30px 0px;">
+    <div class="container">
+        <h2>באפשרותך לתרום באמצעות כרטיס אשראי. אנא בחר סכום לתרומה :</h2>
+        <table class="table" border="0">
+            <tbody>
+            <tr>
+                <td style="width:350px;">סכום תרומה</td>
+                <td style="width:650px;font-size:23px;" class="fls-sml"><img title="360" src="../Images/radio.jpg" fieldname="360"
+                                                     alt=""/><label for="field10_radioButton">₪360</label>&nbsp;<img
+                        title="180" src="../Images/radio.jpg" fieldname="180" alt=""/><label for="field20_radioButton">₪180</label>&nbsp;<img
+                        title="100" src="../Images/radio.jpg" fieldname="100" alt=""/><label for="field30_radioButton">₪100</label>&nbsp;<img
+                        title="50" src="../Images/radio.jpg" fieldname="50" alt=""/><label
+                        for="field40_radioButton">₪50</label>&nbsp;<img title="36" src="../Images/radio.jpg"
+                                                                        fieldname="36" alt=""/><label
+                        for="field50_radioButton">₪36</label>&nbsp;<img title="18" src="../Images/radio.jpg"
+                                                                        fieldname="18" alt=""/><label
+                        for="field60_radioButton">₪18</label>&nbsp;-&nbsp;אחר&nbsp;<img
+                        src="../Images/openPriceRadio.jpg" title="אחר" fieldname="אחר" alt=""/></td>
+            </tr>
+            <tr>
+                <td>תרומה בש"ח</td>
+                <td><img alt="" src="../Images/total.jpg" fieldname="===="/></td>
+            </tr>
+            <tr>
+                <td>
+                    לנוחיותכם: אדם התורם בשמו או לזכרו של אדם אחר, יכול לצרף לתרומה מכתב הוקרה.
+                </td>
+                <td><img style="font-family:Arial;font-size: 24px;width:670px;" src="../Images/textArea.jpg" title="הודעה" fieldname="הודעה" alt=""/>
+                </td>
+            </tr>
+            <tr>
+                <td class="btn" align="left" colspan="2">
+                    <p><span style="font-size: 12px;"> </span><input type="button" value="Submit" fieldname="@@@@"/></p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<style>
+    body {
+        background: #dbdbdb url(BlueBG.jpg) center top no-repeat;
+        font-family: Arial;
+    }
+
+    .container {
+        margin:0 auto;
+        width:1000px;
+        margin-top:20px;
+    }
+
+    .table {
+        width:1000px;
+    }
+
+    .btn input {
+        background: #4a4d54;
+        border: none;
+        color: white;
+        padding: 13px 22px;
+        margin-left: 90px;
+        font-size: 1.3em;
+    }
+
+    .frm-flds input[type=text] {
+        padding: 10px 22px;
+        font-size: 18px;
+    }
+
+    .frm-flds .fls-sml input[type=text] {
+        width: 70px;
+    }
+
+    .frm-flds textarea {
+        height: 70px;
+        width:670px;
+        font-size: 24px;
+    }
+
+    .chk {
+        position: relative;
+        top: -70px;
+        right: 30px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size:28px;
+        margin:0px;
+        margin-bottom:20px;
+        font-weight: normal;
+    }
+
+    h2 {
+        font-size:34px;
+        margin:0px;
+        margin-bottom:20px;
+    }
+
+    td {
+        font-size:28px;
+
+    }
+
+    td .error {
+        font-size: 20px;
+        display: block;
+        margin-right: 10px;
+        margin-top: -3px;
+    }
+
+    .frm-flds input[type=text], .frm-flds select {
+        font-size: 24px;
+        width: 85%;
+        margin-right: 8px;
+        padding: 4px 5px;
+    }
+
+    input[type="submit"] {
+        margin-left:0px;
+        padding: 6px 20px;
+        margin-top:10px;
+    }
+
+    .alert {
+        display: none;
+        position: fixed;
+        top:-50px;
+        left:0px;
+        width:100%;
+    }
+
+    @media screen and (max-height: 700px) {
+
+        .container {
+            margin-top:10px;
+        }
+
+        .table {
+            width:950px;
+        }
+
+        h1 {
+            margin-bottom:10px;
+            font-size:20px;
+        }
+
+        h2 {
+            font-size:30px;
+            margin-bottom: 10px;
+        }
+
+        td {
+            height:40px;
+            font-size:20px;
+        }
+
+        td .error {
+            font-size:17px;
+        }
+
+        input[type="submit"] {
+            margin-top:5px;
+        }
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        //$('#ctl31').parent().addClass('chk');
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.frm-flds input').on('focus', function () {
+            $(this).attr('autocomplete', 'off');
+        });
+    });
+</script>
+<script>
+    $(function () {
+        jsKeyboard.init();
+        var h = $(window).height();
+        if (h < 700) {
+            jsKeyboard.setSize("small");
+        }
+        //jsKeyboard.destroy();
+    });
+</script>
+<style>
+    #LPVirtualKeyboard {
+        height: 355px;
+    }
+
+    #keyboard {
+        max-width: 900px;
+    }
+
+    #LPVirtualKeyboard.sm {
+        height: 267px;
+    }
+</style>
