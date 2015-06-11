@@ -251,11 +251,11 @@ var jsKeyboard = {
                     {value: "&#8592;", isChar: "false", buttonClass: "button button_backspace", onclick: "jsKeyboard.del();" }],
                 // 1st row
                 [{value: 81 }, { value: 87 }, { value: 69 }, { value: 82 }, { value: 84 }, { value: 89 },
-                    { value: 85 }, { value: 73 }, { value: 79 }, { value: 80 }, { value: 40 }, { value: 41 }/*,
+                    { value: 85 }, { value: 73 }, { value: 79 }, { value: 80 }, { value: 40 }, { value: 41 }, { value: 45, buttonClass: "button button_minus" }/*,
                  { value: "Delete", isChar: "false", onclick: "jsKeyboard.del()", buttonClass: "button button_del", keyClass: "key key_del" }*/],
                 // 2nd row
                 [{value: 65, buttonClass: "button button_a" }, { value: 83 }, { value: 68 }, { value: 70 },
-                    { value: 71 }, { value: 72 }, { value: 74 }, { value: 75 }, { value: 76 }, { value: 34 }/*,
+                    { value: 71 }, { value: 72 }, { value: 74 }, { value: 75 }, { value: 76 }, { value: 34 }, { value: 95 }/*,
                  { value: "Enter", isChar: "false", buttonClass: "button button_enter", onclick: "jsKeyboard.enter();", keyClass: "key key_enter" }*/],
                 // 3rd row
                 [{value: "abc", isChar: "false", buttonClass: "button button_smallletter", onclick: "jsKeyboard.changeToSmallLetter();", keyClass: "key key_smallletter" },
@@ -276,11 +276,11 @@ var jsKeyboard = {
                 {value: "&#8592;", isChar: "false", buttonClass: "button button_backspace", onclick: "jsKeyboard.del();" }],
             // 1st row
             [{value: 113 }, { value: 119 }, { value: 101 }, { value: 114 }, { value: 116 },
-                { value: 121 }, { value: 117 }, { value: 105 }, { value: 111 }, { value: 112 }, { value: 40 }, { value: 41 }/*,
+                { value: 121 }, { value: 117 }, { value: 105 }, { value: 111 }, { value: 112 }, { value: 40 }, { value: 41 }, { value: 45, buttonClass: "button button_minus" }/*,
              { value: "Delete", isChar: "false", onclick: "jsKeyboard.del()", buttonClass: "button button_del", keyClass: "key key_del" }*/],
             // 2nd row
             [{value: 97, buttonClass: "button button_a" }, { value: 115 }, { value: 100 }, { value: 102 },
-                { value: 103 }, { value: 104 }, { value: 106 }, { value: 107 }, { value: 108 }, { value: 34 }/*,
+                { value: 103 }, { value: 104 }, { value: 106 }, { value: 107 }, { value: 108 }, { value: 34 }, { value: 95 }/*,
              { value: "Enter", isChar: "false", buttonClass: "button button_enter", onclick: "jsKeyboard.enter();", keyClass: "key key_enter" }*/],
             // 3rd row
             [{value: "ABC", isChar: "false", buttonClass: "button button_capitalletterleft", onclick: "jsKeyboard.changeToCapitalLetter();", keyClass: "key key_capitalletterleft" },
@@ -309,11 +309,11 @@ var jsKeyboard = {
             ],
             // 1st row
             [{value: 47 }, { value: 39 }, { value: 1511 }, { value: 1512 }, { value: 1488 },
-                { value: 1496 }, { value: 1493 }, { value: 1503 }, { value: 1501 }, { value: 1508 }, { value: 40 }, { value: 41 }/*,
+                { value: 1496 }, { value: 1493 }, { value: 1503 }, { value: 1501 }, { value: 1508 }, { value: 40 }, { value: 41 }, { value: 45, buttonClass: "button button_minus" }/*,
              { value: "Delete", isChar: "false", onclick: "jsKeyboard.del()", buttonClass: "button button_del", keyClass: "key key_del" }*/],
             // 2nd row
             [{value: 1513, buttonClass: "button button_sh" }, { value: 1491 }, { value: 1490 }, { value: 1499 },
-                { value: 1506 }, { value: 1497 }, { value: 1495 }, { value: 1500 }, { value: 1498 }, { value: 1507 }, { value: 44 }, { value: 34 }/*,
+                { value: 1506 }, { value: 1497 }, { value: 1495 }, { value: 1500 }, { value: 1498 }, { value: 1507 }, { value: 44 }, { value: 34 }, { value: 95 }/*,
              { value: "Enter", isChar: "false", buttonClass: "button button_enter", onclick: "jsKeyboard.enter();", keyClass: "key key_enter" }*/],
             // 3rd row
             [
@@ -397,11 +397,14 @@ jQuery.fn.getSelectionStart = function(){
     }
 
     if (input.createTextRange) {
-        var r = document.selection.createRange().duplicate();
-        r.moveEnd('character', input.value.length);
-        if (r.text == '')
-            pos = input.value.length;
-        pos = input.value.lastIndexOf(r.text);
+        if(document.selection) {
+            var r = document.selection.createRange().duplicate();
+            r.moveEnd('character', input.value.length);
+            if (r.text == '')
+                pos = input.value.length;
+            pos = input.value.lastIndexOf(r.text);
+        }
+
     } else if(typeof(input.selectionStart)!="undefined")
         pos = input.selectionStart;
 
