@@ -156,11 +156,13 @@ var jsKeyboard = {
             jsKeyboard.settings.lang = "he";
             jsKeyboard.changeToHebrew();
             $(".button_lang .key").text("English");
+            $(".button_lang_short .key").text("EN");
         }
         else {
             jsKeyboard.settings.lang = "en";
             jsKeyboard.changeToSmallLetter();
             $(".button_lang .key").text("עברית");
+            $(".button_lang_short .key").text("HE");
         }
 
     },
@@ -181,7 +183,8 @@ var jsKeyboard = {
         jsKeyboard.currentElement.setCursorPosition(jsKeyboard.currentElementCursorPosition);
     },
     write: function (m) {
-
+        if(!jsKeyboard.currentElement)
+            return;
 
         var a = jsKeyboard.currentElement.val(),
             b = String.fromCharCode(m),
@@ -264,6 +267,7 @@ var jsKeyboard = {
                 // 4th row
                 [
 
+                    {value: "EN", isChar: "false", buttonClass: "button button_lang_short", onclick: "jsKeyboard.switchLang();" },
                     { value: 64, buttonClass: "button button_shh" },
                     { value: "Space", isChar: "false", buttonClass: "button button_space", onclick: "jsKeyboard.space();", keyClass: "key key_space" },
                     { value: "#$+", isChar: "false", buttonClass: "button button_symbolsright", onclick: "jsKeyboard.changeToSymbols();", keyClass: "key key_symbols" }]
@@ -291,6 +295,7 @@ var jsKeyboard = {
 
 
 
+                {value: "EN", isChar: "false", buttonClass: "button button_lang_short", onclick: "jsKeyboard.switchLang();" },
                 { value: 64, buttonClass: "button button_shh" },
                 // { value: 32, buttonClass: "button button_space" },
                 {value: "Space", isChar: "false", buttonClass: "button button_space", onclick: "jsKeyboard.space();", keyClass: "key key_space" },
@@ -324,7 +329,9 @@ var jsKeyboard = {
 
 
                 // { value: 32, buttonClass: "button button_space" },
+                {value: "EN", isChar: "false", buttonClass: "button button_lang_short", onclick: "jsKeyboard.switchLang();" },
                 { value: 64 ,buttonClass: "button button_shh" },
+
                 {value: "Space", isChar: "false", buttonClass: "button button_space", onclick: "jsKeyboard.space();", keyClass: "key key_space" },
                 { value: "#$+", isChar: "false", buttonClass: "button button_symbolsright", onclick: "jsKeyboard.changeToSymbols();", keyClass: "key key_symbols" }]
         ],

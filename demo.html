@@ -41,7 +41,10 @@
             <script>
                 $(function () {
                     jsKeyboard.init();
-                    jsKeyboard.setSize("small");
+                    var h = $(window).height();
+                    if(h < 700) {
+                        jsKeyboard.setSize("small");
+                    }
                     //jsKeyboard.destroy();
                 });
             </script>

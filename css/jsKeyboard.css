@@ -16,7 +16,7 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
     background-color: #7F7F7F;
-
+    font-family: Arial;
 }
 
 #keyboard{
@@ -121,8 +121,8 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
 .button.button_backspace {width:60px;}
 .button.button_zh {margin-left:45px;}
 .button.button_sh {margin-left:12px;}
-.button.button_shh {margin-left:150px;}
 .button.button_minus .key{padding-top:0px;}
+.button.button_lang_short {margin-left:100px;}
 
 
 .button .key {width:100%; height:100%; text-align:center; padding-top:12px; text-shadow: 0px 1px 1px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=1);}
@@ -150,7 +150,17 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
     color: #fff;
 }
 
-.button.button_lang {
+.button.button_lang_short .key {
+    padding-top:15px;
+}
+
+.sm .button.button_lang_short .key {
+    padding-top:14px;
+    font-size: 0.8em;
+}
+
+.button.button_lang,
+.button.button_lang_short{
     background: #337ab7; /* old browsers */
     color: #ffffff;
 }
