@@ -58,7 +58,7 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
 
 .button
 {
-
+	font-size:32px;
     width:60px; height:60px;
     background-color:#fff;
     position:relative;
@@ -66,7 +66,7 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
     margin-right:9px;
     margin-top:10px;
     cursor: none;
-    font-size:1.9em;
+    font-size:2.4em;
 
     /*box shadow*/
     -webkit-box-shadow: 0px 1px 3px #000000;-moz-box-shadow: 0px 1px 3px #000000;box-shadow: 0px 1px 3px #000000;
@@ -157,11 +157,13 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
 
 .button.button_lang_short .key {
     padding-top:15px;
+	font-weight:normal;
 }
 
 .sm .button.button_lang_short .key {
     padding-top:14px;
     font-size: 0.8em;
+	font-weight:normal;
 }
 
 .button.button_lang,
@@ -179,10 +181,12 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
 
 .button.button_lang .key {
     padding-top:12px;
+	font-weight:normal;
 }
 
 .sm .button.button_lang .key {
     padding-top:6px;
+	font-weight:normal;
 }
 
 
