@@ -130,7 +130,7 @@ body {margin:0px 0px; padding:0px; /* Need to set body margin and padding to get
 .button.button_lang_short {margin-left:100px;}
 
 
-.button .key {width:100%; height:100%; text-align:center; padding-top:12px; text-shadow: 0px 1px 1px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=1);}
+.button .key {width:100%; height:100%; text-align:center; padding-top:12px; text-shadow: 0px 1px 1px #ffffff;filter: dropshadow(color=#ffffff, offx=0, offy=1);font-weight:bold;}
 .button .key.key_del {padding-top:18px;}
 .button .key.key_enter {padding-top:18px;}
 .button .key.key_smallletter {padding-top:18px;}
